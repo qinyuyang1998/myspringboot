@@ -16,7 +16,10 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-	
+	/**
+	 * 输出hello
+	 * @return
+	 */
 	@RequestMapping(value="/hello",method = RequestMethod.GET,produces="application/json;charset=UTF-8")
 	public ResponseMsg hello() {
         try {
@@ -27,7 +30,11 @@ public class UserController {
                     null);
         }
 	}
-
+	/**
+	 * 保存User
+	 * @param user
+	 * @return
+	 */
 	@RequestMapping(value="/save",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
 	public ResponseMsg saveUser(@RequestBody User user) {
         try {
@@ -39,7 +46,11 @@ public class UserController {
                     null);
         }
 	}
-	
+	/**
+	 * 分页查询
+	 * @param user
+	 * @return
+	 */
 	@RequestMapping(value="/queryPageUser",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
 	public ResponseMsg queryPageUser(@RequestBody User user) {
         try {
@@ -50,6 +61,4 @@ public class UserController {
                     null);
         }
 	}
-	
-	
 }

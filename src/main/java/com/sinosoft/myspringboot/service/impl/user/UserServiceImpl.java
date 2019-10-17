@@ -18,12 +18,19 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserDAO userDAO;
-
+	/**
+	 * 保存User
+	 * @param user
+	 */
 	@Override
 	public void saveUser(User user) {
 		this.userDAO.saveUser(user);
 	}
-
+	/**
+	 * 分页查询
+	 * @param user
+	 * @return
+	 */
 	@Override
 	public String queryPageUser(User user) {
 		Gson gson = new Gson();
