@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosoft.myspringboot.dao.upload.AnnexFileDao">
+	<resultMap type="com.sinosoft.myspringboot.pojo.upload.AnnexFile" id="annexFile">
+		<id column="fd_objectid" jdbcType="VARCHAR" property="fdObjectid" />
+	    <result column="business_type" jdbcType="VARCHAR" property="businessType" />
+	    <result column="data_id" jdbcType="VARCHAR" property="dataId" />
+	    <result column="old_name" jdbcType="VARCHAR" property="oldName" />
+	    <result column="new_name" jdbcType="VARCHAR" property="newName" />
+	    <result column="path" jdbcType="VARCHAR" property="path" />
+	    <result column="create_person" jdbcType="VARCHAR" property="createPerson" />
+	    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+	    <result column="is_del" jdbcType="VARCHAR" property="isDel" />
+	</resultMap>
+	<insert id="insert" parameterType="com.sinosoft.myspringboot.pojo.upload.AnnexFile">
+		INSERT INTO `annex_file` (`fd_objectid`, `business_type`, `data_id`, `old_name`, `new_name`, `path`, `create_person`, `create_date`, `is_del`) VALUES 
+		(#{fdObjectid,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, #{dataId,jdbcType=VARCHAR}, 
+		#{oldName,jdbcType=VARCHAR}, #{newName,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, 
+		#{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{isDel,jdbcType=VARCHAR});
+	</insert>
+	<select id="query" parameterType="com.sinosoft.myspringboot.pojo.upload.AnnexFile" resultMap="annexFile">
+		select `fd_objectid`, `business_type`, `data_id`, `old_name`, `new_name`, `path`, `create_person`, `create_date`, `is_del` from annex_file 
+		where is_del = 0 and fd_objectid = #{fdObjectid,jdbcType=VARCHAR}
+	</select>
+</mapper>

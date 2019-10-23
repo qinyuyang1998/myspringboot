@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sinosoft.myspringboot.dao.user.UserDAO">
 	<resultMap type="com.sinosoft.myspringboot.pojo.user.User" id="userMap">
-		<id column="user_id" jdbcType="BIGINT" property="userId" />
+		<id column="user_id" jdbcType="INTEGER" property="userId" />
 	    <result column="user_name" jdbcType="VARCHAR" property="userName" />
-	    <result column="user_age" jdbcType="BIGINT" property="userAge" />
+	    <result column="user_age" jdbcType="INTEGER" property="userAge" />
 	</resultMap>
 	<insert id="saveUser" parameterType="com.sinosoft.myspringboot.pojo.user.User">
 		insert into users(user_name,user_age) values(#{userName},#{userAge})
