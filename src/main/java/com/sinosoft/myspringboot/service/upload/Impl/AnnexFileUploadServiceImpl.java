@@ -191,5 +191,14 @@ public class AnnexFileUploadServiceImpl implements AnnexFileUploadService {
 		}
 
 	}
+    /**
+     * @param annexFile
+     * @return
+     * 查询附件
+     */
+	@Override
+	public AnnexFile query(AnnexFile annexFile) {
+		return annexFileDao.query(annexFile);
+	}
 
 }

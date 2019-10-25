@@ -8,12 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
+import com.sinosoft.myspringboot.pojo.upload.AnnexFile;
 import com.sinosoft.myspringboot.service.upload.AnnexFileUploadService;
 import com.sinosoft.myspringboot.enums.ResultStatusCodeEmun;
 import com.sinosoft.utils.ResponseMsg;
@@ -72,5 +74,22 @@ public class AnnexFileUploadController {
         } catch (Exception e) {
             logger.error("附件->" + fdObjectid + "->下载失败", e);
         }
+    }
+    
+    /**
+     * @param annexFile
+     * @return
+     * 查询附件
+     */
+    @RequestMapping(value = "/annexFile/query", method = RequestMethod.POST)
+    public ResponseMsg query(@RequestBody AnnexFile annexFile) {
+    	 try {
+    		 AnnexFile newAnnexFile = annexFileUploadService.query(annexFile);
+             return new ResponseMsg(ResultStatusCodeEmun.OK.getCode(), ResultStatusCodeEmun.OK.getMsg(), newAnnexFile);
+         } catch (Exception e) {
+             logger.error("附件上传失败！", e);
+             return new ResponseMsg(ResultStatusCodeEmun.SYSTEM_ERR.getCode(), ResultStatusCodeEmun.SYSTEM_ERR.getMsg(),
+                     null);
+         }
     }
 }

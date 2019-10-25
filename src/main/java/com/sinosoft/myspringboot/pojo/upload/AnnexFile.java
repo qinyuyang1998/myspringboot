@@ -2,6 +2,10 @@ package com.sinosoft.myspringboot.pojo.upload;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * 
  * <p>
@@ -46,6 +50,8 @@ public class AnnexFile {
 	private String newName;
 	private String path;
 	private String createPerson;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date createDate;
 	private String isDel;
 	public String getFdObjectid() {

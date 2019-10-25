@@ -60,7 +60,7 @@ public class AnnexFileTest {
 	@Test
 	public void testQuery() {
 		AnnexFile annexFile=new AnnexFile();
-		annexFile.setFdObjectid("783a71a9ad894d22a9895fbc3cbbfe00");
+		annexFile.setFdObjectid("32a65bfbe8a44a59a5ab7b52f21ba14c");
 		AnnexFile insert = annexFileDao.query(annexFile);
 		System.out.println(insert);
 	}

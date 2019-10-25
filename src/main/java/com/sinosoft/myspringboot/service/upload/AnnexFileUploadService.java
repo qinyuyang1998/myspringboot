@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sinosoft.myspringboot.pojo.upload.AnnexFile;
+
 /**
  * 
  * <p>
@@ -40,4 +42,11 @@ public interface AnnexFileUploadService {
      * 下载附件
      */
     void download(HttpServletRequest request, HttpServletResponse response, String fdObjectid) throws Exception;
+    
+    /**
+     * @param annexFile
+     * @return
+     * 查询附件
+     */
+    AnnexFile query(AnnexFile annexFile);
 }
