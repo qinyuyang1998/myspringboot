@@ -1,6 +1,7 @@
 package com.sinosoft.myspringboot.controller.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +13,7 @@ import com.sinosoft.myspringboot.service.user.UserService;
 import com.sinosoft.utils.ResponseMsg;
 
 @RestController
+@CrossOrigin
 public class UserController {
 
 	@Autowired
@@ -24,7 +26,7 @@ public class UserController {
 	public ResponseMsg hello() {
         try {
         	System.out.println("hello...");
-            return new ResponseMsg(ResultStatusCodeEmun.OK.getCode(), ResultStatusCodeEmun.OK.getMsg(), null);
+            return new ResponseMsg(ResultStatusCodeEmun.OK.getCode(), ResultStatusCodeEmun.OK.getMsg(), "Hello!!!!!!");
         } catch (Exception e) {
             return new ResponseMsg(ResultStatusCodeEmun.SYSTEM_ERR.getCode(), ResultStatusCodeEmun.SYSTEM_ERR.getMsg(),
                     null);
